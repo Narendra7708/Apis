@@ -1,0 +1,19 @@
+.body{
+    background-image: url(./login.jpg);
+  }
+  .body1{
+    background-image: url(./registration.jpg);
+  }
+.nari{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #666; */
+    position: fixed;
+    top :  0;
+    width: 100%;
+    font-size: 25px;
+  }
+
+  

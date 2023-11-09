@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "Username": "narendra",
+      "Password": "annapuneni",
+      "id": 2
+    },
+    {
+      "Username": "narendra",
+      "Password": "annapuneni",
+      "id": 3
+    },
+    {
+      "Username": "narendra",
+      "Password": "annapuneni",
+      "id": 4
+    },
+    {
+      "Username": "narendra",
+      "Password": "annapuneni",
+      "id": 5
+    },
+    {
+      "Username": "narendra",
+      "Password": "annapuneni",
+      "id": 6
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

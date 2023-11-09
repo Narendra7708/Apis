@@ -1,0 +1,90 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body class="body1">
+    <div>
+        <h1 id="registrarion">
+            <center>Registration Form</center>
+        </h1>
+        <form>
+            <center>
+                <div style="margin: 20px;">
+                    <label for="Username" style="margin: 20px;"><strong>Username:</strong></label>
+                    <input type="text" id="Username" placeholder="Username">
+                </div>
+                <div style="margin: 20px;">
+                    <label for="E-mail" style="margin: 20px;"><strong>Email:</strong></label>
+                    <input type="email" id="Email" placeholder="Email">
+                </div>
+                <div style="margin: 20px;">
+                    <label for="Password" style="margin: 20px;"><strong>Password:</strong></label>
+                    <input type="text" id="password" placeholder="Password">
+                </div>
+                <div style="margin: 20px;">
+                    <label for="confirmpassword" style="margin: 20px;"><strong>Confirm password:</strong></label>
+                    <input type="confirmpassword" id="confirmpassword" placeholder="confirmpassword">
+                </div>
+                <div style="margin: 20px;">
+
+                    <input type="reset" style="margin:0px 10px;">
+                    <input type="submit">
+                </div>
+            </center>
+        </form>
+    </div>
+    <script>
+        let formm = document.forms;
+        console.log(formm[0]);
+        //var a2=[];
+        formm[0].addEventListener("submit", function (event) {
+            event.preventDefault();
+            console.log(event.target[0].value);
+            console.log(event.target[1].value);
+            console.log(event.target[2].value);
+            console.log(event.target[3].value);
+            console.log(event.target[4].value);
+
+
+
+            let Username = event.target[0].value;
+            let Lastname = event.target[1].value;
+            let Email = event.target[2].value;
+            let Password = event.target[3].value;
+            let confirmpassword = event.target[4].value
+
+            if (Username.length >= 10) {
+                alert('user length more then 10 charetacters')
+            } else {
+            }
+
+            // if(Password)
+
+            let a = {
+                Username: "narendra",
+                Password: "annapuneni123"
+            }
+            // console.log(a)
+            // a2.push(a)
+            // console.log(a2);
+
+            fetch("http://localhost:3000/posts", {
+                method: "POST",
+                headers: {
+                    'content-Type': 'application/json'
+                },
+                body: JSON.stringify(a)
+
+            }).then((val) => val.json()).then((val) => { console.log(window.location.assign("../login.html")) })
+
+        })
+    </script>
+</body>
+
+</html>

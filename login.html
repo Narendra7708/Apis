@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body class="body">
+    <div class="nari1">
+        <h1 id="Login">
+            <center>Login Form</center>
+        </h1>
+        <form>
+            <center>
+                <div style="margin: 20px;">
+                    <label for="Username"><strong>Username:</strong></label>
+                    <input type="text" id="Username" placeholder="Username">
+                </div>
+                <div style="margin: 20px;">
+                    <label for="password"><strong>password:</strong></label>
+                    <input type="text" id="password" placeholder="password">
+                </div>
+                <div style="margin: 20px;">
+                    <input type="submit">
+                    <!-- <button onclick="registrarion()" >submit</button> -->
+                </div>
+            </center>
+        </form>
+    </div>
+
+    <script>
+        let formm = document.forms;
+        console.log(formm[0]);
+        formm[0].addEventListener("submit", function (event) {
+            event.preventDefault();
+            console.log(event.target[0].value);
+            console.log(event.target[1].value);
+            console.log(event.target[2].value);
+
+            let Username = event.target[0].value;
+            let Password = event.target[1].value;
+
+            fetch("http://localhost:3000/posts", {
+                method: "get"
+            }).then((response) => response.json())
+                .then((data) => {
+                    let userFound = false;
+                    for (let i = 0; i < data.length; i++) {
+                        if (
+                            data[i].username === Username &&
+                            data[i].password === Password
+                        ) {
+                            userFound = true;
+                            break;
+                        }
+                    }
+
+                    if (userFound) {
+                        console.log("Login successful!")
+                        alert(window.location.assign('../Apis/login1.jpg'))
+
+                    } else {
+                        console.log("Login failed. Incorrect username or password.")
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        });
+    </script>
+    </div>
+</body>
+
+</html>
